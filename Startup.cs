@@ -1,9 +1,20 @@
 using AlloyCheck.Extensions;
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.Find;
+using EPiServer.Framework.Cache;
+using EPiServer.ServiceLocation;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using System.Net.Http;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
+using EPiServer.Find.Connection;
+using EPiServer.Framework;
+using EPiServer.Shell.UI.Messaging.Internal;
+using Microsoft.Extensions.Options;
+using Microsoft.Win32;
 
 namespace AlloyCheck;
 
@@ -25,11 +36,17 @@ public class Startup
             services.Configure<SchedulerOptions>(options => options.Enabled = false);
         }
 
+    services.Configure<FindOptions>(options =>
+    {
+        // Configure EPiServer Find options here
+    });
+
         services
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
             .AddAlloy()
             .AddAdminUserRegistration()
+            .AddFind()
             .AddEmbeddedLocalization<Startup>();
 
         // Required by Wangkanai.Detection
