@@ -51,6 +51,8 @@ public class Startup
 
         // Required by Wangkanai.Detection
         services.AddDetection();
+        services.AddTinyMceCustomizations();
+
 
         services.AddSession(options =>
         {
