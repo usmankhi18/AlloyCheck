@@ -36,11 +36,6 @@ public class Startup
             services.Configure<SchedulerOptions>(options => options.Enabled = false);
         }
 
-    services.Configure<FindOptions>(options =>
-    {
-        // Configure EPiServer Find options here
-    });
-
         services
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
