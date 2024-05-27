@@ -40,3 +40,8 @@ footer {
     opacity: .4; }
   .jumbotronblock .jumbotron-inner {
     position: relative; }
+
+.image-slider img {
+    max-height: 400px; /* Set maximum height for images */
+    width: auto; /* Ensure images maintain aspect ratio */
+}

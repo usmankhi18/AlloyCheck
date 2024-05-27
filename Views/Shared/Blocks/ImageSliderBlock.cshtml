@@ -1,0 +1,53 @@
+﻿@model AlloyCheck.Models.Blocks.ImageSliderBlock
+
+<style>
+    #image-slider img {
+        max-height: 400px; /* Set maximum height for images */
+        width: 400px; /* Ensure images maintain aspect ratio */
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: black; /* Customize control icon color */
+    }
+</style>
+
+@if (Model != null && Model.Images != null && Model.Images.Items.Any())
+{
+    <div id="image-slider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach (var item in Model.Images.Items)
+            {
+                <div class="carousel-item @(item == Model.Images.Items.First() ? "active" : "")">
+                    <img src="@Url.ContentUrl(item.ContentLink)" class="d-block" alt="@item.ContentLink" />
+                </div>
+            }
+        </div>
+        @if (Model.Images.Items.Count() > 1)
+        {
+            <button class="carousel-control-prev" type="button" data-bs-target="#image-slider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#image-slider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        }
+    </div>
+
+    @if (Model.AutoPlay)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var myCarousel = document.querySelector('#image-slider');
+                var carousel = new bootstrap.Carousel(myCarousel, {
+                    interval: @Model.Interval
+                });
+            });
+        </script>
+    }
+}
+else
+{
+    <p>No images available for the slider.</p>
+}
