@@ -1,0 +1,17 @@
+﻿@model PageViewModel<CustomPage>
+
+<div class="custom-page">
+    <h1>@Model.CurrentPage.Title</h1>
+    <div class="main-body">
+        @Html.PropertyFor(x => x.CurrentPage.MainBody)
+    </div>
+    <div class="campaign-wrapper">
+        <div epi-property="@Model.CurrentPage.ContentArea" class="row" />
+    </div>
+    <div class="campaign-wrapper">
+        <div epi-property="@Model.CurrentPage.ContentArea1" class="row" />
+    </div>
+    <div class="campaign-wrapper">
+        <div epi-property="@Model.CurrentPage.ContentArea2" class="row" />
+    </div>
+</div>

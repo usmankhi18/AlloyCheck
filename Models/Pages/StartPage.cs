@@ -20,7 +20,8 @@ namespace AlloyCheck.Models.Pages;
         typeof(StandardPage),
         typeof(ISearchPage),
         typeof(LandingPage),
-        typeof(ContentFolder)
+        typeof(ContentFolder),
+        typeof(CustomPage)
     ], // Pages we can create under the start page...
     ExcludeOn =
     [
