@@ -1,4 +1,5 @@
 using EPiServer.Framework.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace AlloyCheck.Models.Media;
 
@@ -13,4 +14,8 @@ public class ImageFile : ImageData
     /// The copyright.
     /// </value>
     public virtual string Copyright { get; set; }
+	[CultureSpecific]
+	[Editable(true)]
+	public virtual string Description { get; set; }
 }
+
