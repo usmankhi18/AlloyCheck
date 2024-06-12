@@ -1,0 +1,16 @@
+﻿@model AlloyCheck.Models.Blocks.EventItemBlock
+
+<div style="border-right-color: #ef9a0e; clear: both;">
+    <div style="float: left; width: 16.666667%; padding-right: 15px;">
+        <a href="@Model.RegistrationLink"><img src="@Model.ImageUrl" alt="@Model.Title" style="width: 100%;"></a>
+    </div>
+    <div style="float: left; width: 83.333333%; padding-left: 15px;">
+        <h2 style="margin-top: 10px; margin-bottom: 10px;">
+            <a href="@Model.RegistrationLink" title="@Model.Title" style="color: inherit; text-decoration: none;">@Model.Title</a>
+        </h2>
+        <div style="margin-bottom: 10px;"></div>
+        <p style="margin: 0 0 10px;">@Model.Description</p>
+        <a href="@Model.RegistrationLink" style="color: #fff; background-color: #007bff; border-color: #007bff; display: inline-block; font-weight: 400; text-align: center; white-space: nowrap; vertical-align: middle; user-select: none; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out; text-decoration: none;">Register now</a>
+    </div>
+    <div style="clear: both;"></div>
+</div>
